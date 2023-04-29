@@ -1,11 +1,19 @@
 <template>
-  <transition-group name="toastify" tag="div" class="toastify-container">
+  <transition-group
+    name="toastify"
+    tag="div"
+    :class="['toastify-container', toastifyPosition]"
+  >
     <div
       v-for="toastify in toast.notifications"
       :key="toastify.id"
       :class="[{ 'show-toast': toastify.isShow }, toastifyTheme]"
     >
-      <img class="toastify-img" :src="iconStatus(toastify.status)" />
+      <img
+        v-if="toastify.status !== 'default'"
+        class="toastify-img"
+        :src="iconStatus(toastify.status)"
+      />
       <p class="toastify-text">
         {{ toastify.message }}
         Lorem ipsum dolor, sit amet consectetur adipisicing.
@@ -29,6 +37,34 @@ const toastifyTheme = computed(() => {
   return option.value?.theme === "day" ? "toastify-day" : "toastify-night";
 });
 
+const toastifyPosition = computed(() => {
+  switch (option.value?.positiom) {
+    case "top-left": {
+      return "toast-top-left";
+      break;
+    }
+    case "top-right": {
+      return "toast-top-right";
+      break;
+    }
+    case "bottom-right": {
+      return "toast-bottom-right";
+      break;
+    }
+    case "bottom-left": {
+      return "toast-bottom-left";
+      break;
+    }
+    case "center": {
+      return "toast-center";
+      break;
+    }
+    default: {
+      return "toast-center";
+    }
+  }
+});
+
 function iconStatus(type: string) {
   switch (type) {
     case "success": {
@@ -50,23 +86,16 @@ function iconStatus(type: string) {
 <style lang="scss" scoped>
 @import "@/styles/mixins/contentCenterFlex.scss";
 @import "@/styles/mixins/defauldSizesToastify.scss";
+@import "@/styles/mixins/toastContainer.scss";
+@import "@/styles/mixins/toastPosition.scss";
 @import "@/styles/mixins/toast.scss";
 .toastify-container {
-  position: fixed;
-  top: 30px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  pointer-events: none;
-  z-index: 9999;
+  @include toastConteiner;
   .toastify-day {
-    @include toast(#ffff, black, 0 0 10px rgba(0, 0, 0, 0.2));
+    @include toast(#ffff, black);
   }
   .toastify-night {
-    @include toast(black, #fff, 0 0 10px rgba(0, 0, 0, 0.2));
+    @include toast(black, #fff);
   }
   .show-toastify {
     opacity: 1;
@@ -81,5 +110,22 @@ function iconStatus(type: string) {
     opacity: 0;
     top: -50px;
   }
+}
+.toast-center {
+  @include toastPosition(center);
+}
+.toast-top-left {
+  @include toastPosition(start);
+}
+.toast-top-right {
+  @include toastPosition(end);
+}
+.toast-bottom-right {
+  @include toastPosition(end);
+  justify-content: end;
+}
+.toast-bottom-left {
+  @include toastPosition(start);
+  justify-content: end;
 }
 </style>

@@ -1,12 +1,12 @@
 @import "@/styles/mixins/contentCenterFlex.scss";
 @import "@/styles/mixins/defauldSizesToastify.scss";
 
-@mixin toast($bg-col, $col, $b-shadow) {
+@mixin toast($bg-col, $col) {
   position: relative;
   top: 0px;
   box-sizing: border-box;
   background-color: $bg-col;
-  box-shadow: $b-shadow;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: $col;
   border-radius: 5px;
   padding: 10px;

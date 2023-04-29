@@ -1,0 +1,5 @@
+@mixin toastPosition($al-items) {
+  display: flex;
+  flex-direction: column;
+  align-items: $al-items;
+}

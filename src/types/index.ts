@@ -1,4 +1,4 @@
-export type ToastifyStatus = "success" | "warning" | "error";
+export type ToastifyStatus = "default" | "success" | "warning" | "error";
 
 export type Notify = {
   id: number;
@@ -12,10 +12,17 @@ export type Toast = {
 };
 
 export type Thema = "day" | "night";
+export type Position =
+  | "center"
+  | "top-left"
+  | "top-right"
+  | "bottom-right"
+  | "bottom-left";
 
 export type ToastOptions = {
   theme: Thema;
   autoClose: number;
+  positiom: Position;
 };
 
 export type ToastifyOptions = Partial<ToastOptions>;
