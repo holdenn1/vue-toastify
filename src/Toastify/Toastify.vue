@@ -1,18 +1,15 @@
 <template>
-  <transition-group tag="div" class="toast-container">
+  <transition-group name="toastify" tag="div" class="toastify-container">
     <div
-      v-for="notice in toast.notifications"
-      :key="notice.id"
-      class="toast"
-      :class="{ 'show-toast': notice.isShow }"
+      v-for="toastify in toast.notifications"
+      :key="toastify.id"
+      class="toastify"
+      :class="{ 'show-toast': toastify.isShow }"
     >
-      <img
-        class="toastify-img"
-        :class="`status-img--`"
-        :src="iconType(notice.type)"
-      />
-      <p class="toast__text">
-        {{ notice.message }}
+      <img class="toastify-img" :src="iconStatus(toastify.status)" />
+      <p class="toastify__text">
+        {{ toastify.message }}
+        Lorem ipsum dolor, sit amet consectetur adipisicing.
       </p>
     </div>
   </transition-group>
@@ -24,7 +21,7 @@ import successImg from "@/icons/success.png";
 import errorImg from "@/icons/error.png";
 import warningImg from "@/icons/warning.png";
 
-function iconType(type: string) {
+function iconStatus(type: string) {
   switch (type) {
     case "success": {
       return successImg;
@@ -44,8 +41,9 @@ const { toast } = useToast();
 </script>
 
 <style lang="scss" scoped>
-.toast-container {
+.toastify-container {
   position: fixed;
+  top: 30px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -54,10 +52,10 @@ const { toast } = useToast();
   align-items: center;
   pointer-events: none;
   z-index: 9999;
-  .toast {
+  .toastify {
     position: relative;
     top: 0px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 5px;
@@ -83,21 +81,18 @@ const { toast } = useToast();
       line-height: 140%;
     }
   }
-  .show-toast {
-    top: 50px;
+  .show-toastify {
     opacity: 1;
   }
-  .v-move,
-  .v-enter-active,
-  .v-leave-active {
+  .toastify-move,
+  .toastify-enter-active,
+  .toastify-leave-active {
     transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   }
-  .v-enter-from,
-  .v-leave-to {
+  .toastify-enter-from,
+  .toastify-leave-to {
     opacity: 0;
-  }
-  .v-leave-active {
-    position: absolute;
+    top: -50px;
   }
 }
 </style>

@@ -1,9 +1,10 @@
 import { useToast } from "@/hooks/useToast";
+import type { ToastifyStatus } from "@/types";
 
 export function useToastify() {
   const { notify } = useToast();
-  function toastify(type: string, message: string) {
-    notify(type, message);
+  function toastify(status: ToastifyStatus, message: string) {
+    notify(status, message);
   }
 
   return {

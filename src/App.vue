@@ -3,6 +3,7 @@
   <button @click="toastify('success', 'Success!')">Show Toast</button>
   <button @click="toastify('error', 'Error!!!')">Show Toast2</button>
   <button @click="toastify('warning', 'Warning!!!')">Show Toast3</button>
+
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consequatur
     impedit corporis quisquam nisi, laborum velit illo optio reiciendis
