@@ -5,6 +5,11 @@ import "@/styles/index.scss";
 import { createToastifyPlugin } from "@/ToastPlugin";
 
 const app = createApp(App);
-app.use(createToastifyPlugin({ status: "Hi!" }));
+app.use(
+  createToastifyPlugin({
+    autoClose: 5000,
+    theme: "day",
+  })
+);
 
 app.mount("#app");

@@ -1,3 +1,4 @@
+import { useOptions } from "@/hooks/useOptions";
 import type { Notify, Toast, ToastifyStatus } from "@/types";
 import { computed, nextTick, ref } from "vue";
 
@@ -6,7 +7,8 @@ const toast = ref<Toast>({
 });
 
 export function useToast() {
-  
+  const { option } = useOptions();
+
   const removeNotification = (id: number) => {
     const notificationsInx = computed(() => {
       return toast.value.notifications.findIndex((notify) => notify.id === id);
@@ -14,9 +16,9 @@ export function useToast() {
     if (notificationsInx.value !== -1) {
       const notification = toast.value.notifications[notificationsInx.value];
       notification.isShow = false;
-      setTimeout(() => {
+      nextTick(() => {
         toast.value.notifications.splice(notificationsInx.value, 1);
-      }, 300);
+      });
     }
   };
 
@@ -38,7 +40,7 @@ export function useToast() {
     });
     setTimeout(() => {
       removeNotification(notification.id);
-    }, 3000);
+    }, option.value?.autoClose || 3000);
   }
 
   return {

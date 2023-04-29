@@ -3,11 +3,10 @@
     <div
       v-for="toastify in toast.notifications"
       :key="toastify.id"
-      class="toastify"
-      :class="{ 'show-toast': toastify.isShow }"
+      :class="[{ 'show-toast': toastify.isShow }, toastifyTheme]"
     >
       <img class="toastify-img" :src="iconStatus(toastify.status)" />
-      <p class="toastify__text">
+      <p class="toastify-text">
         {{ toastify.message }}
         Lorem ipsum dolor, sit amet consectetur adipisicing.
       </p>
@@ -17,9 +16,18 @@
 
 <script setup lang="ts">
 import { useToast } from "@/hooks/useToast";
+import { useOptions } from "@/hooks/useOptions";
 import successImg from "@/icons/success.png";
 import errorImg from "@/icons/error.png";
 import warningImg from "@/icons/warning.png";
+import { computed } from "vue";
+
+const { toast } = useToast();
+const { option } = useOptions();
+
+const toastifyTheme = computed(() => {
+  return option.value?.theme === "day" ? "toastify-day" : "toastify-night";
+});
 
 function iconStatus(type: string) {
   switch (type) {
@@ -37,10 +45,12 @@ function iconStatus(type: string) {
     }
   }
 }
-const { toast } = useToast();
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/mixins/contentCenterFlex.scss";
+@import "@/styles/mixins/defauldSizesToastify.scss";
+@import "@/styles/mixins/toast.scss";
 .toastify-container {
   position: fixed;
   top: 30px;
@@ -52,34 +62,11 @@ const { toast } = useToast();
   align-items: center;
   pointer-events: none;
   z-index: 9999;
-  .toastify {
-    position: relative;
-    top: 0px;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    border-radius: 5px;
-    min-width: 200px;
-    max-width: 720px;
-    min-height: 80px;
-    max-height: 420px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 0px 20px 20px;
-    pointer-events: auto;
-    overflow: auto;
-    text-align: justify;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .toastify-img {
-      margin-right: 20px;
-    }
-
-    &__text {
-      font-family: Raleway;
-      font-weight: 500;
-      line-height: 140%;
-    }
+  .toastify-day {
+    @include toast(#ffff, black, 0 0 10px rgba(0, 0, 0, 0.2));
+  }
+  .toastify-night {
+    @include toast(black, #fff, 0 0 10px rgba(0, 0, 0, 0.2));
   }
   .show-toastify {
     opacity: 1;

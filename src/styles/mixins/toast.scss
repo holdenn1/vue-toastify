@@ -1,0 +1,28 @@
+@import "@/styles/mixins/contentCenterFlex.scss";
+@import "@/styles/mixins/defauldSizesToastify.scss";
+
+@mixin toast($bg-col, $col, $b-shadow) {
+  position: relative;
+  top: 0px;
+  box-sizing: border-box;
+  background-color: $bg-col;
+  box-shadow: $b-shadow;
+  color: $col;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0px 20px 20px;
+  pointer-events: auto;
+  overflow: auto;
+  text-align: justify;
+  @include defaultSizesToastify;
+  @include contentCenterFlex;
+  .toastify-img {
+    margin-right: 20px;
+  }
+
+  .toastify-text {
+    font-family: Raleway;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
