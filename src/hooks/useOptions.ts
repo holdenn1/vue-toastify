@@ -1,7 +1,7 @@
-import type { ToastOptions } from "@/types";
+import type { BaseOptions } from "@/types";
 import { ref } from "vue";
 
-const option = ref<ToastOptions>();
+const option = ref<BaseOptions>();
 
 export function useOptions() {
   function setOptions(options: any) {

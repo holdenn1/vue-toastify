@@ -14,20 +14,16 @@
   <br />
 
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consequatur
-    impedit corporis quisquam nisi, laborum velit illo optio reiciendis
-    molestiae autem quia explicabo nemo? Distinctio labore aliquam officia dicta
-    iusto. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-    Perspiciatis, molestias vero! Corporis nihil, quis consequatur aliquam non
-    alias ullam atque. Necessitatibus, nulla, maxime incidunt quis ratione vero
-    tempore culpa consequuntur ea cumque eveniet magnam rerum quidem officia
-    enim similique, ad quia aspernatur repudiandae. Architecto error temporibus
-    dolore sint necessitatibus optio consequuntur debitis, quis distinctio quod
-    nostrum quae consectetur, nobis laboriosam, provident veniam id delectus
-    atque totam numquam quia molestias veritatis voluptate! Eum quam ad, labore
-    doloremque ipsam sapiente temporibus voluptatum, possimus libero a
-    laboriosam explicabo commodi, vel tenetur facilis. Magnam autem tempora
-    accusantium hic eum numquam asperiores mollitia dolor quia!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
+    dignissimos dolorem labore quos hic neque ullam obcaecati expedita
+    voluptatem. Tenetur in ipsa deleniti quibusdam ipsam optio facere officiis
+    nam officia saepe, vero enim, cumque consequatur minima et dolores beatae
+    numquam libero. Nemo laudantium vero quia! Sint in porro cupiditate ex
+    eveniet quae ipsam facere reiciendis, odio earum assumenda officia aliquam
+    impedit ratione alias. Eos accusantium vero, similique ad iusto cumque quia,
+    minima error officiis obcaecati aperiam voluptatem! Tempora, ratione commodi
+    doloribus molestiae porro atque voluptas a voluptatem beatae eum quae rem
+    molestias recusandae possimus excepturi nobis neque velit odit illum!
   </p>
 </template>
 

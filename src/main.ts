@@ -9,7 +9,8 @@ app.use(
   createToastifyPlugin({
     autoClose: 5000,
     theme: "night",
-    positiom: "center",
+    position: "top-right",
+    offset: 50,
   })
 );
 

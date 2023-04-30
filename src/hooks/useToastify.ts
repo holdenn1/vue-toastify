@@ -6,7 +6,6 @@ export function useToastify() {
   function toastify(status: ToastifyStatus, message: string) {
     notify(status, message);
   }
-
   return {
     toastify,
   };

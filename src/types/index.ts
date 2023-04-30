@@ -13,16 +13,19 @@ export type Toast = {
 
 export type Thema = "day" | "night";
 export type Position =
-  | "center"
+  | "top-center"
   | "top-left"
   | "top-right"
   | "bottom-right"
   | "bottom-left";
 
-export type ToastOptions = {
+export type BaseOptions = {
   theme: Thema;
   autoClose: number;
-  positiom: Position;
+  position: Position;
+  width: number;
+  height: number;
+  offset: number;
 };
 
-export type ToastifyOptions = Partial<ToastOptions>;
+export type ToastifyOptions = Partial<BaseOptions>;

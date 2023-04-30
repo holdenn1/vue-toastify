@@ -3,11 +3,13 @@
     name="toastify"
     tag="div"
     :class="['toastify-container', toastifyPosition]"
+    :style="topAndBottomToastify"
   >
     <div
       v-for="toastify in toast.notifications"
       :key="toastify.id"
       :class="[{ 'show-toast': toastify.isShow }, toastifyTheme]"
+      :style="toastifySize"
     >
       <img
         v-if="toastify.status !== 'default'"
@@ -37,8 +39,24 @@ const toastifyTheme = computed(() => {
   return option.value?.theme === "day" ? "toastify-day" : "toastify-night";
 });
 
+const toastifySize = computed(() => {
+  return {
+    width: option.value?.width + "px",
+    height: option.value?.height + "px",
+  };
+});
+
+const topAndBottomToastify = computed(() => {
+  const isTop = option.value?.position.includes("top");
+  if (isTop) {
+    return { top: option.value?.offset + "px" };
+  } else {
+    return { bottom: option.value?.offset + "px" };
+  }
+});
+
 const toastifyPosition = computed(() => {
-  switch (option.value?.positiom) {
+  switch (option.value?.position) {
     case "top-left": {
       return "toast-top-left";
       break;
@@ -55,12 +73,12 @@ const toastifyPosition = computed(() => {
       return "toast-bottom-left";
       break;
     }
-    case "center": {
-      return "toast-center";
+    case "top-center": {
+      return "toast-top-center";
       break;
     }
     default: {
-      return "toast-center";
+      return "toast-top-center";
     }
   }
 });
@@ -88,9 +106,11 @@ function iconStatus(type: string) {
 @import "@/styles/mixins/defauldSizesToastify.scss";
 @import "@/styles/mixins/toastContainer.scss";
 @import "@/styles/mixins/toastPosition.scss";
+@import "@/styles/mixins/toastifyAnimation.scss";
 @import "@/styles/mixins/toast.scss";
 .toastify-container {
   @include toastConteiner;
+
   .toastify-day {
     @include toast(#ffff, black);
   }
@@ -100,32 +120,48 @@ function iconStatus(type: string) {
   .show-toastify {
     opacity: 1;
   }
-  .toastify-move,
-  .toastify-enter-active,
-  .toastify-leave-active {
-    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
-  }
-  .toastify-enter-from,
-  .toastify-leave-to {
-    opacity: 0;
-    top: -50px;
-  }
 }
-.toast-center {
+.toast-top-center {
   @include toastPosition(center);
+  @include toastifyAnimation(translate(0, -100px));
+  .toastify-leave-active {
+    position: absolute;
+  }
 }
 .toast-top-left {
   @include toastPosition(start);
+  @include toastifyAnimation(translate(-100px, 0));
+  .toastify-leave-active {
+    position: absolute;
+  }
 }
 .toast-top-right {
   @include toastPosition(end);
+  @include toastifyAnimation(translate(100px, 0));
+  .toastify-leave-active {
+    position: absolute;
+  }
 }
 .toast-bottom-right {
   @include toastPosition(end);
   justify-content: end;
+  @include toastifyAnimation(translate(100px, 0));
+  .toastify-day,
+  .toastify-night {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 .toast-bottom-left {
   @include toastPosition(start);
   justify-content: end;
+  @include toastifyAnimation(translate(-100px, 0));
+  .toastify-day,
+  .toastify-night {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>

@@ -1,0 +1,12 @@
+@mixin toastifyAnimation($tr-translate){
+  .toastify-move,
+  .toastify-enter-active,
+  .toastify-leave-active {
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .toastify-enter-from,
+  .toastify-leave-to {
+    opacity: 0;
+    transform: $tr-translate;
+  }
+}
