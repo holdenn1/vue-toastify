@@ -8,9 +8,9 @@ const app = createApp(App);
 app.use(
   createToastifyPlugin({
     autoClose: 5000,
-    theme: "night",
-    position: "top-right",
+    theme: "day",
     offset: 50,
+    closeOnClick: true,
   })
 );
 

@@ -26,6 +26,8 @@ export type BaseOptions = {
   width: number;
   height: number;
   offset: number;
+  showCloseButton: boolean;
+  closeOnClick: boolean;
 };
 
 export type ToastifyOptions = Partial<BaseOptions>;

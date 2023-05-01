@@ -7,6 +7,7 @@
   >
     <div
       v-for="toastify in toast.notifications"
+      @click="!!option?.closeOnClick && removeNotification(toastify.id)"
       :key="toastify.id"
       :class="[{ 'show-toast': toastify.isShow }, toastifyTheme]"
       :style="toastifySize"
@@ -18,23 +19,34 @@
       />
       <p class="toastify-text">
         {{ toastify.message }}
-        Lorem ipsum dolor, sit amet consectetur adipisicing.
+        Lorem ipsum dolor
       </p>
+      <img
+        v-if="!!option?.showCloseButton"
+        @click="removeNotification(toastify.id)"
+        class="toastify-close-btn"
+        :src="toastifyIconIcon"
+      />
     </div>
   </transition-group>
 </template>
 
 <script setup lang="ts">
-import { useToast } from "@/hooks/useToast";
+import { removeNotification, useToast } from "@/hooks/useToast";
 import { useOptions } from "@/hooks/useOptions";
 import successImg from "@/icons/success.png";
 import errorImg from "@/icons/error.png";
 import warningImg from "@/icons/warning.png";
+import closeDarkTheme from "@/icons/close-dark-theme.png";
+import closeBrightTheme from "@/icons/close-bright-theme.png";
 import { computed } from "vue";
 
 const { toast } = useToast();
 const { option } = useOptions();
 
+const toastifyIconIcon = computed(() => {
+  return option.value?.theme === "day" ? closeBrightTheme : closeDarkTheme;
+});
 const toastifyTheme = computed(() => {
   return option.value?.theme === "day" ? "toastify-day" : "toastify-night";
 });
@@ -44,15 +56,6 @@ const toastifySize = computed(() => {
     width: option.value?.width + "px",
     height: option.value?.height + "px",
   };
-});
-
-const topAndBottomToastify = computed(() => {
-  const isTop = option.value?.position.includes("top");
-  if (isTop) {
-    return { top: option.value?.offset + "px" };
-  } else {
-    return { bottom: option.value?.offset + "px" };
-  }
 });
 
 const toastifyPosition = computed(() => {
@@ -80,6 +83,15 @@ const toastifyPosition = computed(() => {
     default: {
       return "toast-top-center";
     }
+  }
+});
+
+const topAndBottomToastify = computed(() => {
+  const isTop = toastifyPosition.value?.includes("toast-top");
+  if (isTop) {
+    return { top: option.value?.offset + "px" };
+  } else {
+    return { bottom: option.value?.offset + "px" };
   }
 });
 

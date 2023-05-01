@@ -6,21 +6,20 @@ const toast = ref<Toast>({
   notifications: [],
 });
 
+export const removeNotification = (id: number) => {
+  const notificationsInx = computed(() => {
+    return toast.value.notifications.findIndex((notify) => notify.id === id);
+  });
+  if (notificationsInx.value !== -1) {
+    const notification = toast.value.notifications[notificationsInx.value];
+    notification.isShow = false;
+    nextTick(() => {
+      toast.value.notifications.splice(notificationsInx.value, 1);
+    });
+  }
+};
 export function useToast() {
   const { option } = useOptions();
-
-  const removeNotification = (id: number) => {
-    const notificationsInx = computed(() => {
-      return toast.value.notifications.findIndex((notify) => notify.id === id);
-    });
-    if (notificationsInx.value !== -1) {
-      const notification = toast.value.notifications[notificationsInx.value];
-      notification.isShow = false;
-      nextTick(() => {
-        toast.value.notifications.splice(notificationsInx.value, 1);
-      });
-    }
-  };
 
   function notify(status: ToastifyStatus, message: string) {
     const notification: Notify = {

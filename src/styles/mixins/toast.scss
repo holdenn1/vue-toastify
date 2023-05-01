@@ -17,6 +17,7 @@
   @include defaultSizesToastify;
   @include contentCenterFlex;
   flex-shrink: 0;
+  cursor: pointer;
   &::-webkit-scrollbar{
     display: none;
   }
@@ -28,5 +29,19 @@
     font-family: Raleway;
     font-weight: 500;
     line-height: 140%;
+  }
+
+  .toastify-close-btn {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    opacity: 0.5;
+    transition-duration: 0.3s;
+    &:hover{
+      opacity: 1;
+      cursor: pointer;
+    }
   }
 }
