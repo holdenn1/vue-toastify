@@ -1,17 +1,24 @@
 export type ToastifyStatus = "default" | "success" | "warning" | "error";
 
+export type Thema = "day" | "night";
+
+type TimeoutID = number;
+
 export type Notify = {
   id: number;
   status: ToastifyStatus;
   message: string;
   isShow: boolean;
+  timeoutId: TimeoutID;
 };
 
 export type Toast = {
   notifications: Notify[];
+  timeoutId: TimeoutID;
+  startTime: number;
+  remainingTime: number;
 };
 
-export type Thema = "day" | "night";
 export type Position =
   | "top-center"
   | "top-left"
@@ -28,6 +35,7 @@ export type BaseOptions = {
   offset: number;
   showCloseButton: boolean;
   closeOnClick: boolean;
+  pauseTimerOnHover: boolean;
 };
 
 export type ToastifyOptions = Partial<BaseOptions>;

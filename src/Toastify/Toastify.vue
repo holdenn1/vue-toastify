@@ -7,6 +7,8 @@
   >
     <div
       v-for="toastify in toast.notifications"
+      @mouseenter="option?.pauseTimerOnHover && stopTimer(toastify.timeoutId)"
+      @mouseleave="option?.pauseTimerOnHover && timerToAutoClose(toastify.id)"
       @click="!!option?.closeOnClick && removeNotification(toastify.id)"
       :key="toastify.id"
       :class="[{ 'show-toast': toastify.isShow }, toastifyTheme]"
@@ -32,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { removeNotification, useToast } from "@/hooks/useToast";
+import { useToast } from "@/hooks/useToast";
 import { useOptions } from "@/hooks/useOptions";
 import successImg from "@/icons/success.png";
 import errorImg from "@/icons/error.png";
@@ -41,14 +43,14 @@ import closeDarkTheme from "@/icons/close-dark-theme.png";
 import closeBrightTheme from "@/icons/close-bright-theme.png";
 import { computed } from "vue";
 
-const { toast } = useToast();
+const { toast, removeNotification, stopTimer, timerToAutoClose } = useToast();
 const { option } = useOptions();
 
 const toastifyIconIcon = computed(() => {
   return option.value?.theme === "day" ? closeBrightTheme : closeDarkTheme;
 });
 const toastifyTheme = computed(() => {
-  return option.value?.theme === "day" ? "toastify-day" : "toastify-night";
+  return option.value?.theme === "night" ? "toastify-night" : "toastify-day";
 });
 
 const toastifySize = computed(() => {

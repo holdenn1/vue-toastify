@@ -7,10 +7,8 @@ import { createToastifyPlugin } from "@/ToastPlugin";
 const app = createApp(App);
 app.use(
   createToastifyPlugin({
-    autoClose: 5000,
-    theme: "day",
-    offset: 50,
-    closeOnClick: true,
+
+   pauseTimerOnHover: true
   })
 );
 
