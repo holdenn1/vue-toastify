@@ -9,7 +9,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: $col;
   border-radius: 5px;
-  padding: 10px 14px;
+  padding: 14px 16px;
   margin: 0px 20px 20px;
   pointer-events: auto;
   overflow: auto;
@@ -18,17 +18,22 @@
   @include contentCenterFlex;
   flex-shrink: 0;
   cursor: pointer;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
   .toastify-img {
     margin-right: 20px;
+    width: 50px;
+    height: 50px;
   }
 
   .toastify-text {
-    font-family: Raleway;
-    font-weight: 500;
-    line-height: 140%;
+    padding: 10px;
+    p {
+      font-family: Raleway;
+      font-weight: 500;
+      line-height: 140%;
+    }
   }
 
   .toastify-close-btn {
@@ -39,7 +44,7 @@
     right: 8px;
     opacity: 0.5;
     transition-duration: 0.3s;
-    &:hover{
+    &:hover {
       opacity: 1;
       cursor: pointer;
     }

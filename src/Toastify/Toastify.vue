@@ -17,12 +17,13 @@
       <img
         v-if="toastify.status !== 'default'"
         class="toastify-img"
-        :src="iconStatus(toastify.status)"
+        :src="toastifyCover(toastify.status)"
       />
-      <p class="toastify-text">
-        {{ toastify.message }}
-        Lorem ipsum dolor
-      </p>
+      <div class="toastify-text">
+        <p>
+          {{ toastify.message }}
+        </p>
+      </div>
       <img
         v-if="!!option?.showCloseButton"
         @click="removeNotification(toastify.id)"
@@ -49,6 +50,7 @@ const { option } = useOptions();
 const toastifyIconIcon = computed(() => {
   return option.value?.theme === "day" ? closeBrightTheme : closeDarkTheme;
 });
+
 const toastifyTheme = computed(() => {
   return option.value?.theme === "night" ? "toastify-night" : "toastify-day";
 });
@@ -97,18 +99,22 @@ const topAndBottomToastify = computed(() => {
   }
 });
 
-function iconStatus(type: string) {
+function toastifyCover(type: string) {
   switch (type) {
     case "success": {
-      return successImg;
-      break;
-    }
-    case "error": {
-      return errorImg;
+      return option.value?.cover?.success
+        ? option.value?.cover?.success
+        : successImg;
       break;
     }
     case "warning": {
-      return warningImg;
+      return option.value?.cover?.warning
+        ? option.value?.cover?.warning
+        : warningImg;
+      break;
+    }
+    case "error": {
+      return option.value?.cover?.error ? option.value?.cover?.error : errorImg;
       break;
     }
   }

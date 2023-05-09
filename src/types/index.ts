@@ -36,6 +36,11 @@ export type BaseOptions = {
   showCloseButton: boolean;
   closeOnClick: boolean;
   pauseTimerOnHover: boolean;
+  cover: {
+    success?: string;
+    warning?: string;
+    error?: string;
+  };
 };
 
 export type ToastifyOptions = Partial<BaseOptions>;

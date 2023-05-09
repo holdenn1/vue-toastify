@@ -50,7 +50,7 @@ export function useToast() {
     });
     timerToAutoClose(notification.id);
   }
-
+  
   function timerToAutoClose(notificationId: number) {
     if (!toast.value.remainingTime) {
       toast.value.startTime = Date.now();
