@@ -1,40 +1,30 @@
-# vue-toastify
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+<h1 style='border-bottom: 1px solid #ccc'>Requirements</h1>
+<p>vue version >=3.2.0</p>
+<h1 style='border-bottom: 1px solid #ccc'>Installation</h1>
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+npm install vue-toastify
 ```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+<h1 style='border-bottom: 1px solid #ccc'>Guide</h1>
+<h5>Step 1: Connection</h5>
+<p>First, you need to connect the plugin in the root of your project. When connecting, you can pass additional parameters such as delay, topic, position, etc.</p>
+<div style='text-align:center;'>
+<img  src='./src/assets/images/1.png'/>
+</div>
+<p>The project is written in TypeScript, so there will be hints for parameters</p>
+<h5>Step 2: Import the toastify component</h5>
+<p>Next, you need to import the toast component into the project</p>
+<div style='text-align:center;'>
+<img  src='./src/assets/images/2.png'/>
+</div>
+<h5>Step 3: Import hook</h5>
+<p>Importing the <em><strong> useToastify() </em></strong>hook</p>
+<div style='text-align:center;'>
+<img  src='./src/assets/images/3.png'/>
+</div>
+<h5>Step 3: Toastify</h5>
+<p>Next, we need to pass 2 parameters to .<em><strong>toastify()</em></strong>, the first is the status, the second is the message.</p>
+<div style='text-align:center;'>
+<img  src='./src/assets/images/4.png'/>
+</div>
+</br>
+<p>The toastify is ready to go!</p>

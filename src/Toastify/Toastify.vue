@@ -37,11 +37,11 @@
 <script setup lang="ts">
 import { useToast } from "./../hooks/useToast";
 import { useOptions } from "./../hooks/useOptions";
-import successImg from "./../icons/success.png";
-import errorImg from "./../icons/error.png";
-import warningImg from "./../icons/warning.png";
-import closeDarkTheme from "./../icons/close-dark-theme.png";
-import closeBrightTheme from "./../icons/close-bright-theme.png";
+import successImg from "./../assets/icons/success.png";
+import errorImg from "./../assets/icons/error.png";
+import warningImg from "./../assets/icons/warning.png";
+import closeDarkTheme from "./../assets/icons/close-dark-theme.png";
+import closeBrightTheme from "./../assets/icons/close-bright-theme.png";
 import { computed } from "vue";
 
 const { toast, removeNotification, stopTimer, timerToAutoClose } = useToast();
