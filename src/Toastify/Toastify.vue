@@ -35,13 +35,13 @@
 </template>
 
 <script setup lang="ts">
-import { useToast } from "@/hooks/useToast";
-import { useOptions } from "@/hooks/useOptions";
-import successImg from "@/icons/success.png";
-import errorImg from "@/icons/error.png";
-import warningImg from "@/icons/warning.png";
-import closeDarkTheme from "@/icons/close-dark-theme.png";
-import closeBrightTheme from "@/icons/close-bright-theme.png";
+import { useToast } from "./../hooks/useToast";
+import { useOptions } from "./../hooks/useOptions";
+import successImg from "./../icons/success.png";
+import errorImg from "./../icons/error.png";
+import warningImg from "./../icons/warning.png";
+import closeDarkTheme from "./../icons/close-dark-theme.png";
+import closeBrightTheme from "./../icons/close-bright-theme.png";
 import { computed } from "vue";
 
 const { toast, removeNotification, stopTimer, timerToAutoClose } = useToast();
@@ -122,12 +122,12 @@ function toastifyCover(type: string) {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/mixins/contentCenterFlex.scss";
-@import "@/styles/mixins/defauldSizesToastify.scss";
-@import "@/styles/mixins/toastContainer.scss";
-@import "@/styles/mixins/toastPosition.scss";
-@import "@/styles/mixins/toastifyAnimation.scss";
-@import "@/styles/mixins/toast.scss";
+@import "./../styles/mixins/contentCenterFlex.scss";
+@import "./../styles/mixins/defauldSizesToastify.scss";
+@import "./../styles/mixins/toastContainer.scss";
+@import "./../styles/mixins/toastPosition.scss";
+@import "./../styles/mixins/toastifyAnimation.scss";
+@import "./../styles/mixins/toast.scss";
 .toastify-container {
   @include toastConteiner;
 

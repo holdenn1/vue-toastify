@@ -1,5 +1,5 @@
-import { useOptions } from "@/hooks/useOptions";
-import type { Notify, Toast, ToastifyStatus } from "@/types";
+import { useOptions } from "./../hooks/useOptions";
+import type { Notify, Toast, ToastifyStatus } from "./../types";
 import { computed, nextTick, ref } from "vue";
 
 const toast = ref<Toast>({

@@ -1,9 +1,5 @@
-<template>
-  <Toastify />
-</template>
+<template></template>
 
-<script setup lang="ts">
-import Toastify from "@/Toastify/Toastify.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>

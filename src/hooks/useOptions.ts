@@ -1,4 +1,4 @@
-import type { BaseOptions } from "@/types";
+import type { BaseOptions } from "./../types";
 import { ref } from "vue";
 
 const option = ref<BaseOptions>();
