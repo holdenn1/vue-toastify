@@ -44,3 +44,4 @@ export type BaseOptions = {
 };
 
 export type ToastifyOptions = Partial<BaseOptions>;
+export * from './../ToastifyPlugin/index'

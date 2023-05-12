@@ -1,5 +1,5 @@
-@import "@/styles/mixins/contentCenterFlex.scss";
-@import "@/styles/mixins/defauldSizesToastify.scss";
+@import "./../mixins/contentCenterFlex.scss";
+@import "./../mixins/defauldSizesToastify.scss";
 
 @mixin toast($bg-col, $col) {
   position: relative;

@@ -1,10 +1,7 @@
-import { useOptions } from "./../hooks/useOptions";
-import type { ToastifyOptions } from "./../types";
-import type { App } from "vue";
+import createToastifyPlugin from "./ToastifyPlugin";
+import { useToastify } from "./../hooks/useToastify";
+import ToastifyStyles from "./../styles/index.scss";
 
-
-export function createToastifyPlugin(options: ToastifyOptions) {
-  return (app: App) => {
-    useOptions().setOptions(options);
-  };
-}
+export { createToastifyPlugin };
+export { useToastify };
+export default ToastifyStyles;

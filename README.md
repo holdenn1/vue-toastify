@@ -5,6 +5,15 @@
 <h1 style='border-bottom: 1px solid #ccc'>Guide</h1>
 <h5>Step 1: Connection</h5>
 <p>First, you need to enable the plugin in the root of your project. When connecting, you can pass additional options such as delay, theme (day/night), position (top left, top center, top right, bottom right, bottom left), hover delay pause, close toast on click or click on the cross, offset, and your own toast cover saver.</p>
+<p>First, we import the plugin</p>
+<div style='text-align:center; width: 100%'>
+<img  src='./src/assets/images/10.png'/>
+</div>
+<p>Then import the styles</p>
+<div style='text-align:center; width: 100%'>
+<img  src='./src/assets/images/9.png'/>
+</div>
+<p>Now connect the plugin and pass the parameters</p>
 <div style='text-align:center; width: 100%'>
 <img  src='./src/assets/images/1.png'/>
 </div>
@@ -22,12 +31,15 @@
 </div>
 <p>The project is written in TypeScript, so there will be hints for parameters</p>
 <h5>Step 2: Import the toastify component</h5>
-<p>Next, you need to import the toast component into the project</p>
+<p>Next, you need to add the toastify component, it does not need to be imported, it is registered globally</p>
 <div style='text-align:center; width: 100%'>
 <img  src='./src/assets/images/2.png'/>
 </div>
 <h5>Step 3: Import hook</h5>
 <p>Importing the <em><strong> useToastify() </em></strong>hook</p>
+<div style='text-align:center; width: 100%'>
+<img  src='./src/assets/images/11.png'/>
+</div>
 <div style='text-align:center; width: 100%'>
 <img  src='./src/assets/images/3.png'/>
 </div>
