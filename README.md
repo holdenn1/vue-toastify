@@ -1,7 +1,7 @@
 <h1 style='border-bottom: 1px solid #ccc'>Requirements</h1>
 <p>vue version >=3.2.0</p>
 <h1 style='border-bottom: 1px solid #ccc'>Installation</h1>
-<code>npm install vue-toastify</code>
+<code>npm install vue-toastify-3</code>
 <h1 style='border-bottom: 1px solid #ccc'>Guide</h1>
 <h5>Step 1: Connection</h5>
 <p>First, you need to enable the plugin in the root of your project. When connecting, you can pass additional options such as delay, theme (day/night), position (top left, top center, top right, bottom right, bottom left), hover delay pause, close toast on click or click on the cross, offset, and your own toast cover saver.</p>

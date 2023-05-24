@@ -1,4 +1,4 @@
-import { useToast } from "./../hooks/useToast";
+import { useToast } from "./useToast";
 import type { ToastifyStatus } from "./../types";
 
 export function useToastify() {

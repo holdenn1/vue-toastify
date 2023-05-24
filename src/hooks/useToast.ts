@@ -1,4 +1,4 @@
-import { useOptions } from "./../hooks/useOptions";
+import { useOptions } from "./useOptions";
 import type { Notify, Toast, ToastifyStatus } from "./../types";
 import { computed, nextTick, ref } from "vue";
 
@@ -50,12 +50,12 @@ export function useToast() {
     });
     timerToAutoClose(notification.id);
   }
-  
+
   function timerToAutoClose(notificationId: number) {
     if (!toast.value.remainingTime) {
       toast.value.startTime = Date.now();
     }
-    toast.value.timeoutId = setTimeout(() => {
+    toast.value.timeoutId = window.setTimeout(() => {
       removeNotification(notificationId);
       toast.value.remainingTime = 0;
     }, daley.value);
